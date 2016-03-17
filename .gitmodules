@@ -1,0 +1,4 @@
+[submodule "static/carteirofiles/carteiro"]
+	path = static/carteirofiles/carteiro
+	url = https://github.com/tloeb/carteiro
+	branch = carteiro-deploy
