@@ -10,7 +10,7 @@ echo
 #Update
 sudo apt-get update
 #Install dependecies Distribution
-sudo apt-get install -q -y python3.5 libpython3.5-dev python3-dateutil python3-django python3-winrm python3-ecdsa python3-paramiko python3-psycopg2
+sudo apt-get install -q -y python3.5 libpython3.5-dev python3-dateutil python3-django python3-ecdsa python3-paramiko python3-psycopg2
 #Install Apache2 WebServer silently
 sudo apt-get install -q -y apache2 libapache2-mod-wsgi-py3
 #Install Postgres DB
@@ -26,6 +26,8 @@ sudo mkdir /var/www/carteiro.web/
 sudo \cp -r -f -v /vagrant/static/carteirofiles/carteiro/Carteiro/* /var/www/carteiro.web/
 #Copy Site Configuratione
 sudo \cp -f -v /vagrant/static/carteirofiles/carteiro_web.conf /etc/apache2/sites-available
+#Copy Stable WinRM Version
+sudo \cp -r -f -v /vagrant/static/carteirofiles/winrm/* /usr/lib/python3/dist-packages/
 echo
 echo "******** Setting Up the Database *********"
 echo
