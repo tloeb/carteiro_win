@@ -10,7 +10,7 @@ echo
 #Update
 sudo apt-get update
 #Install dependecies Distribution
-sudo apt-get install -q -y python3.5 libpython3.5-dev python3-dateutil python3-django python3-ecdsa python3-paramiko python3-psycopg2
+sudo apt-get install -q -y python3.5 libpython3.5-dev python3-dateutil python3-django python3-isodate python3-xmltodict python3-ecdsa python3-paramiko python3-psycopg2
 #Install Apache2 WebServer silently
 sudo apt-get install -q -y apache2 libapache2-mod-wsgi-py3
 #Install Postgres DB
