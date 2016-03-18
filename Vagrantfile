@@ -3,9 +3,18 @@
 
 Vagrant.configure(2) do |config|
 
+  config.vm.provider :vsphere do |vsphere|
+    vsphere.host = 'bf-bkp01.bitformer.lan'
+    vsphere.compute_resource_name = 'YOUR COMPUTE RESOURCE'
+    vsphere.resource_pool_name = 'YOUR RESOURCE POOL'
+    vsphere.template_name = '/PATH/TO/YOUR VM TEMPLATE'
+    vsphere.name = 'NEW VM NAME'
+    vsphere.user = 'loeb'
+  end
+
   #Carteiro
   config.vm.define "carteiro" do |carteiro|
-    carteiro.vm.box = "ubuntu/wily64"
+    carteiro.vm.box = "boxcutter/debian82"
     carteiro.vm.hostname = 'carteiro'
     carteiro.vm.network :forwarded_port, host:5000, guest:80
     carteiro.vm.network "private_network", ip: "192.168.0.1"
