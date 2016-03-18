@@ -9,7 +9,7 @@ Vagrant.configure(2) do |config|
     carteiro.vm.hostname = 'carteiro'
     carteiro.vm.network :forwarded_port, host:5000, guest:80
     carteiro.vm.network "private_network", ip: "192.168.0.1"
-    carteiro.vm.provision :shell, :path => "install_carteiro.sh"
+    carteiro.vm.provision :shell, :path => "static/carteirofiles/install_carteiro.sh"
   end
 
   #WSUS
@@ -39,8 +39,9 @@ Vagrant.configure(2) do |config|
   end
 
   #Windows Client
+  #Password = Passw0rd!
   config.vm.define "win-client" do |winc|
-    winc.vm.box = "lmayorga1980/windows7-sp1"
+    winc.vm.box = "modernIE/w7-ie11"
     winc.vm.hostname = "winClient"
     winc.vm.network "private_network", ip: "192.168.0.20"
     # specify to use winrm rather than ssh
