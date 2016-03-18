@@ -22,11 +22,10 @@ echo
 echo "******** Copy Files *********"
 echo
 #Copy Carteiro Files
-mkdir /var/www/carteiro.web
 sudo mkdir /var/www/carteiro.web/
-sudo cp -r -f /vagrant/static/carteirofiles/carteiro/Carteiro/* /var/www/carteiro.web/
+sudo \cp -r -f -v /vagrant/static/carteirofiles/carteiro/Carteiro/* /var/www/carteiro.web/
 #Copy Site Configuratione
-sudo cp -f /vagrant/static/carteirofiles/carteiro_web.conf /etc/apache2/sites-available
+sudo \cp -f -v /vagrant/static/carteirofiles/carteiro_web.conf /etc/apache2/sites-available
 echo
 echo "******** Setting Up the Database *********"
 echo
@@ -38,7 +37,7 @@ echo "PASSWORD: $CPASSWD"
 sudo -u postgres createuser "$CUSER" 
 sudo -u postgres createdb -O "$CUSER" carteiro_data
 sudo -u postgres psql -d carteiro_data -c "ALTER USER "$CUSER" WITH PASSWORD '$CPASSWD'"
-python3 /var/www/carteiro.web/Carteiro/manage.py syncdb --noinput
+python3 /var/www/carteiro.web/manage.py syncdb --noinput
 echo
 echo "******** Enable Website *********"
 echo
