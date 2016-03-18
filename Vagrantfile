@@ -1,5 +1,5 @@
 # -*- mode: ruby -*-
-# vi: set ft=ruby :
+# vim: set ft=ruby :
 
 Vagrant.configure(2) do |config|
 
@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
     # forward RDP port
     # use "host: 3377" if you are running locally, 
     # since 3389 will be already taken by your RDP listener.
-    wsus.vm.network :forwarded_port, guest: 3389, host: 3377
+    wsus.vm.network :forwarded_port, guest: 3389, host: 5001
 
   end
 
@@ -49,6 +49,6 @@ Vagrant.configure(2) do |config|
     # forward RDP port
     # use "host: 3377" if you are running locally, 
     # since 3389 will be already taken by your RDP listener.
-    winc.vm.network :forwarded_port, guest: 3389, host: 3378
+    winc.vm.network :forwarded_port, guest: 3389, host: 5002
   end
 end
