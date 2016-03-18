@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
 
   #Carteiro
   config.vm.define "carteiro" do |carteiro|
-    carteiro.vm.box = "boxcutter/debian82"
+    carteiro.vm.box = "ubuntu/wily64"
     carteiro.vm.hostname = 'carteiro'
     carteiro.vm.network :forwarded_port, host:5000, guest:80
     carteiro.vm.network "private_network", ip: "192.168.0.1"
@@ -50,7 +50,7 @@ Vagrant.configure(2) do |config|
   #Windows Client
   #Password = Passw0rd!
   config.vm.define "win-client" do |winc|
-    winc.vm.box = "modernIE/w7-ie11"
+    winc.vm.box = "senglin/win-7-enterprise"
     winc.vm.hostname = "winClient"
     winc.vm.network "private_network", ip: "192.168.0.20"
     # specify to use winrm rather than ssh
