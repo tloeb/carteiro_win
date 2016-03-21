@@ -1,0 +1,10 @@
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\CarteiroWin\bin\Debug\CarteiroWin.exe.config
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\bin\Debug\CarteiroWin.exe.config
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\bin\Debug\CarteiroWin.exe
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\bin\Debug\CarteiroWin.pdb
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\obj\Debug\Interop.WindowsInstaller.dll
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\obj\Debug\CarteiroWin.csproj.ResolveComReference.cache
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\obj\Debug\CarteiroWin.exe
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\obj\Debug\CarteiroWin.pdb
