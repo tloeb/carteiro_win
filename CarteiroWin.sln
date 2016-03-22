@@ -11,16 +11,21 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Vagrant|Any CPU = Vagrant|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{49C6651D-5953-4731-BD0D-4F2D0B101BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{49C6651D-5953-4731-BD0D-4F2D0B101BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49C6651D-5953-4731-BD0D-4F2D0B101BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49C6651D-5953-4731-BD0D-4F2D0B101BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49C6651D-5953-4731-BD0D-4F2D0B101BEB}.Vagrant|Any CPU.ActiveCfg = Vagrant|Any CPU
+		{49C6651D-5953-4731-BD0D-4F2D0B101BEB}.Vagrant|Any CPU.Build.0 = Vagrant|Any CPU
 		{06735156-CA8B-4E0F-AAC7-E4487FE71A7F}.Debug|Any CPU.ActiveCfg = All
 		{06735156-CA8B-4E0F-AAC7-E4487FE71A7F}.Debug|Any CPU.Build.0 = All
 		{06735156-CA8B-4E0F-AAC7-E4487FE71A7F}.Release|Any CPU.ActiveCfg = All
 		{06735156-CA8B-4E0F-AAC7-E4487FE71A7F}.Release|Any CPU.Build.0 = All
+		{06735156-CA8B-4E0F-AAC7-E4487FE71A7F}.Vagrant|Any CPU.ActiveCfg = DefaultBuild
+		{06735156-CA8B-4E0F-AAC7-E4487FE71A7F}.Vagrant|Any CPU.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -49,7 +49,8 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
-    <ROW Directory="CarteiroWin_Dir" Directory_Parent="APPDIR" DefaultDir="CARTEI~1|CarteiroWin"/>
+    <ROW Directory="CarteiroWin_Dir" Directory_Parent="ProgramFiles64Folder" DefaultDir="CARTEI~1|CarteiroWin"/>
+    <ROW Directory="ProgramFiles64Folder" Directory_Parent="TARGETDIR" DefaultDir="PROGRA~1|ProgramFiles64Folder" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">

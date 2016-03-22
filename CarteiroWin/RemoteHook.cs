@@ -44,7 +44,7 @@ namespace CarteiroWin
             {
                 IUpdateServer wsus = AdminProxy.GetUpdateServer("localhost", false, 8530);
                 Console.Error.WriteLine("WARNING: SSL Connection could not been established, connection is unsafe");
-                return wsus
+                return wsus;
             }
         }
 
