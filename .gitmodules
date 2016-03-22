@@ -2,3 +2,6 @@
 	path = static/carteirofiles/carteiro
 	url = https://github.com/tloeb/carteiro
 	branch = carteiro-deploy
+[submodule "static/winfiles/carteiro_win"]
+	path = static/winfiles/carteiro_win
+	url = https://github.com/tloeb/carteiro_win
