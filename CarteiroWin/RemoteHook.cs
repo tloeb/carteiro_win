@@ -243,6 +243,21 @@ namespace CarteiroWin
         }
         private IUpdate ImportPackage(IUpdateServer wsus, string packagepath, string title, string desc, string vendor)
         {
+            //Be sure that the baseapplicabilityrules.xsd exists
+            var schemaPath = Environment.SpecialFolder.ProgramFilesX86 + "Update Services\\Schema\\";
+            if (!File.Exists(schemaPath + "baseapplicabilityrules.xsd"))
+            {
+                Console.WriteLine("INFO Need to copy Update Services schemata into x86 Folder");
+                var updateservicesPathx64 = Environment.SpecialFolder.ProgramFiles + "Update Services";
+                var schemaPathx64 = Environment.SpecialFolder.ProgramFiles + "Update Services\\Schema";
+                if (!Directory.Exists(updateservicesPathx64))
+                    Directory.CreateDirectory(updateservicesPathx64);
+                if (!Directory.Exists(schemaPathx64 ))
+                    Directory.CreateDirectory(schemaPathx64);
+                foreach (var file in Directory.GetFiles(schemaPathx64))
+                    File.Copy(file, Path.Combine(schemaPath, Path.GetFileName(file)));
+            }   
+
             Console.WriteLine("Installing Package...");
             SoftwareDistributionPackage sdp = new SoftwareDistributionPackage();
             sdp.PopulatePackageFromWindowsInstaller(packagepath);
