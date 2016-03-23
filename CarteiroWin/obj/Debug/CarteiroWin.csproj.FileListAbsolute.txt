@@ -8,3 +8,4 @@ C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\obj\De
 C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\obj\Debug\CarteiroWin.csproj.ResolveComReference.cache
 C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\obj\Debug\CarteiroWin.exe
 C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\obj\Debug\CarteiroWin.pdb
+C:\Users\loeb.BFLAN\Documents\SourceCode\Bachelor\CarteiroWin\CarteiroWin\obj\Debug\CarteiroWin.csprojResolveAssemblyReference.cache
