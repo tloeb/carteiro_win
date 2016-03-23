@@ -428,7 +428,7 @@ namespace CarteiroWin
             var dict = new Dictionary<string, string>();
             if (args.Length > 0)
             {
-                X509Certificate2 cert = DownloadSslCertificate("File01.bflab.lan");
+                X509Certificate2 cert = DownloadSslCertificate(Environment.MachineName);
                 switch (args[0])
                 {
                     case "Set-DNSName":
