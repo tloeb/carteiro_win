@@ -98,6 +98,28 @@ namespace CarteiroWin
             return false;
         }
 
+        private static void SetWsusCertificate(IUpdateServer wServ)
+        {
+            if (wServ.IsConnectionSecureForApiRemoting)
+            {
+                try
+                {
+                    var wsusConf = wServ.GetConfiguration();
+                    wsusConf.SetSigningCertificate();
+                    wsusConf.Save();
+                    Console.WriteLine("INFO: Generated Certificate imported");
+                }
+                catch (Exception e)
+                {
+                    Console.Error.WriteLine("ERROR: " + e.Message);
+                }
+            }
+            else
+            {
+                Console.Error.WriteLine("ERROR: this operation is not possible with an unsafe connection");
+            }
+        }
+
         private static void SetWsusCertificate(string certPath, string certPass, IUpdateServer wServ)
         {
             if (wServ.IsConnectionSecureForApiRemoting)
@@ -438,7 +460,8 @@ namespace CarteiroWin
                         }
                         catch (IndexOutOfRangeException)
                         {
-                            Console.Error.WriteLine("ERROR: missing argument(s)");
+                            Console.Error.WriteLine("No Arguments found, generating new Certificate");
+                            SetWsusCertificate(wsusServer);
                         }
                         break;
                     case "Get-Cache":
