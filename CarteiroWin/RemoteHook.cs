@@ -96,7 +96,7 @@ namespace CarteiroWin
             if (sslPolicyErrors == SslPolicyErrors.None)
                 return true;
             Console.Error.WriteLine("Certificate error: {0}", sslPolicyErrors);
-            return false;
+            return true;
         }
 
         private static void SetWsusCertificate(IUpdateServer wServ)
@@ -481,14 +481,19 @@ namespace CarteiroWin
                         }
                         break;
                     case "Test-Cert":
-                        if (cert.IssuerName.Name == hook.GetDnsName())
+                        if (cert != null)
                         {
-                            dict["value"] = "true";
+                            if (cert.IssuerName.Name == hook.GetDnsName())
+                            {
+                                dict["value"] = "true";
+                            }
+                            else
+                            {
+                                dict["value"] = "false";
+                            }
                         }
                         else
-                        {
-                            dict["value"] = "false";
-                        }
+                            Console.WriteLine("ERROR: No Certificate found");
                         break;
                     case "Import-Package":
                         try
