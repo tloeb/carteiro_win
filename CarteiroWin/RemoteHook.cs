@@ -110,11 +110,44 @@ namespace CarteiroWin
                 {
                     String secret = "Secure!";
                     X509Certificate2 cert = CreateSelfSignedCertificate("Carteiro");
-                    File.WriteAllBytes("C:\\Cert\\carteiro.pfx", cert.Export(X509ContentType.Pfx, secret));
+                    File.WriteAllBytes("C:\\carteiro.pfx", cert.Export(X509ContentType.Pfx, secret));
+                    File.WriteAllBytes("C:\\carteiro.cert", cert.Export(X509ContentType.Cert));
+                    SetWsusCertificate("C:\\carteiro.pfx", secret, wServ);
+
+                    //Importing into other stores
+                    System.Security.Cryptography.X509Certificates.X509Store authRootStore = new System.Security.Cryptography.X509Certificates.X509Store("AuthRoot", System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
+                    System.Security.Cryptography.X509Certificates.X509Store trustedPublisherStore = new System.Security.Cryptography.X509Certificates.X509Store("TrustedPublisher", System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
+
+                    authRootStore.Add(cert);
+                    trustedPublisherStore.Add(cert);
+
+                    authRootStore.Close();
+                    trustedPublisherStore.Close();
+
+                    Console.WriteLine("INFO: certificates were succesfully imported into AuthRoot and Trusted Publisher stores");
+                    Console.WriteLine("INFO: setting new WSUS Certificate finished!");
+                }
+                catch (Exception e)
+                {
+                    Console.Error.WriteLine("ERROR: " + e.Message);
+                }
+            }
+            else
+            {
+                Console.Error.WriteLine("ERROR: this operation is not possible with an unsafe connection");
+            }
+        }
+
+        private static void SetWsusCertificate(string certPath, string certPass, IUpdateServer wServ)
+        {
+            if (wServ.IsConnectionSecureForApiRemoting)
+            {
+                try
+                {
                     var wsusConf = wServ.GetConfiguration();
-                    wsusConf.SetSigningCertificate("C:\\Cert\\carteiro.pfx", secret);
+                    wsusConf.SetSigningCertificate(certPath, certPass);
                     wsusConf.Save();
-                    Console.WriteLine("INFO: Generated Certificate imported");
+                    Console.WriteLine("INFO: new Certificate imported");
                 }
                 catch (Exception e)
                 {
@@ -188,28 +221,6 @@ namespace CarteiroWin
                 // mark the private key as exportable (this is usually what you want to do)
                 System.Security.Cryptography.X509Certificates.X509KeyStorageFlags.Exportable
             );
-        }
-
-        private static void SetWsusCertificate(string certPath, string certPass, IUpdateServer wServ)
-        {
-            if (wServ.IsConnectionSecureForApiRemoting)
-            {
-                try
-                {
-                    var wsusConf = wServ.GetConfiguration();
-                    wsusConf.SetSigningCertificate(certPath, certPass);
-                    wsusConf.Save();
-                    Console.WriteLine("INFO: new Certificate imported");
-                }
-                catch (Exception e)
-                {
-                    Console.Error.WriteLine("ERROR: " + e.Message);
-                }
-            }
-            else
-            {
-                Console.Error.WriteLine("ERROR: this operation is not possible with an unsafe connection");
-            }
         }
 
         private void ReturnPayload(Dictionary<string, string> dataDict)
