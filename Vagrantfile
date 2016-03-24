@@ -19,21 +19,34 @@ Vagrant.configure(2) do |config|
     wsus.vm.network "private_network", ip: "192.168.0.2"
     wsus.vm.provision "shell" do |prov|
       prov.path = "static/winfiles/Install-WSUSServer.ps1"
-      prov.args = "-Computername wsus -StoreUpdatesLocally -ContentDirectory 'C:\WSUS' -InternalDatabasePath 'C:\' -CreateDatabase"
     end
-
     # specify to use winrm rather than ssh
     wsus.vm.communicator = "winrm"
     # forward RDP port
     # use "host: 3377" if you are running locally, 
     # since 3389 will be already taken by your RDP listener.
     wsus.vm.network :forwarded_port, guest: 3389, host: 5001
+  end
 
+  #Server Client
+  config.vm.define "winserver-client" do |wsus|
+    wsus.vm.box = "kensykora/windows_2012_r2_standard"
+    wsus.vm.hostname = 'testserver'
+    wsus.vm.network "private_network", ip: "192.168.0.30"
+    wsus.vm.provision "shell" do |prov|
+      prov.path = "static/winfiles/Install-WSUSClient.ps1"
+    end
+    # specify to use winrm rather than ssh
+    wsus.vm.communicator = "winrm"
+    # forward RDP port
+    # use "host: 3377" if you are running locally, 
+    # since 3389 will be already taken by your RDP listener.
+    wsus.vm.network :forwarded_port, guest: 3389, host: 5010
   end
 
   #Munki
   config.vm.define "munki" do |munki|
-    munki.vm.box = "carbon/osx-elcapitan-10.11"
+    munki.vm.box = "AndrewDryga/vagrant-box-osx"
     munki.vm.hostname = 'munki'
     munki.vm.network "private_network", ip: "192.168.0.3"
   end
