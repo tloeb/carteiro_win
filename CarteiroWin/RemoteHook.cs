@@ -350,7 +350,7 @@ namespace CarteiroWin
 
                     foreach (var file in Directory.GetFiles(schemaPathx64))
                     {
-                        File.Copy(file, Path.Combine(schemaPathx64, Path.GetFileName(file)));
+                        File.Copy(file, Path.Combine(schemaPathx86, Path.GetFileName(file)));
                         Console.WriteLine("INFO: Copy File " + file);
                     }
                 }
