@@ -111,12 +111,15 @@ namespace CarteiroWin
                     String secret = "Secure!";
                     X509Certificate2 cert = CreateSelfSignedCertificate("Carteiro");
                     File.WriteAllBytes("C:\\carteiro.pfx", cert.Export(X509ContentType.Pfx, secret));
-                    File.WriteAllBytes("C:\\carteiro.cert", cert.Export(X509ContentType.Cert));
+                    File.WriteAllBytes("C:\\carteiro.cer", cert.Export(X509ContentType.Cert));
                     SetWsusCertificate("C:\\carteiro.pfx", secret, wServ);
 
                     //Importing into other stores
                     System.Security.Cryptography.X509Certificates.X509Store authRootStore = new System.Security.Cryptography.X509Certificates.X509Store("AuthRoot", System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
                     System.Security.Cryptography.X509Certificates.X509Store trustedPublisherStore = new System.Security.Cryptography.X509Certificates.X509Store("TrustedPublisher", System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
+
+                    authRootStore.Open(System.Security.Cryptography.X509Certificates.OpenFlags.ReadWrite);
+                    trustedPublisherStore.Open(System.Security.Cryptography.X509Certificates.OpenFlags.ReadWrite);
 
                     authRootStore.Add(cert);
                     trustedPublisherStore.Add(cert);
