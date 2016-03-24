@@ -333,14 +333,19 @@ namespace CarteiroWin
             
             if (!File.Exists(schemaPathx86 + "baseapplicabilityrules.xsd"))
             {
-                Console.WriteLine("INFO Need to copy Update Services schemata into x86 Folder");
+                Console.WriteLine("INFO: Need to copy Update Services schemata into x86 Folder");
                 if (!Directory.Exists(updateservicesPathx86))
+                    Console.WriteLine("INFO: Created Folder " + updateservicesPathx86);
                     Directory.CreateDirectory(updateservicesPathx86);
                 if (!Directory.Exists(schemaPathx86 ))
+                    Console.WriteLine("INFO: Created Folder " + schemaPathx86);
                     Directory.CreateDirectory(schemaPathx86);
-                foreach (var file in Directory.GetFiles(schemaPathx86))
-                    File.Copy(file, Path.Combine(schemaPathx64, Path.GetFileName(file)));
-            }   
+                    foreach (var file in Directory.GetFiles(schemaPathx86))
+                    {
+                        Console.WriteLine("INFO: Copy File " + file);
+                        File.Copy(file, Path.Combine(schemaPathx64, Path.GetFileName(file)));
+                    }
+            }
 
             Console.WriteLine("Installing Package...");
             SoftwareDistributionPackage sdp = new SoftwareDistributionPackage();
