@@ -327,9 +327,9 @@ namespace CarteiroWin
         private IUpdate ImportPackage(IUpdateServer wsus, string packagepath, string title, string desc, string vendor)
         {
             //Be sure that the baseapplicabilityrules.xsd exists
-            var schemaPathx86 = Path.Combine(Environment.SpecialFolder.ProgramFilesX86.ToString(), "Update Services\\Schema\\");
-            var schemaPathx64 = Path.Combine(Environment.SpecialFolder.ProgramFiles.ToString(), "Update Services\\Schema\\");
-            var updateservicesPathx86 = Path.Combine(Environment.SpecialFolder.ProgramFilesX86.ToString(), "Update Services");
+            var schemaPathx86 = Path.Combine("C:\\Program Files (x86)", "Update Services\\Schema\\");
+            var schemaPathx64 = Path.Combine("C:\\Program Files", "Update Services\\Schema\\");
+            var updateservicesPathx86 = Path.Combine("C:\\Program Files (x86)", "Update Services");
             
             if (!File.Exists(schemaPathx86 + "baseapplicabilityrules.xsd"))
             {
