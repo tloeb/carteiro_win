@@ -327,8 +327,8 @@ namespace CarteiroWin
         private IUpdate ImportPackage(IUpdateServer wsus, string packagepath, string title, string desc, string vendor)
         {
             //Be sure that the baseapplicabilityrules.xsd exists
-            var schemaPathx86 = Path.Combine("C:\\Program Files (x86)", "Update Services\\Schema\\");
-            var schemaPathx64 = Path.Combine("C:\\Program Files", "Update Services\\Schema\\");
+            var schemaPathx86 = Path.Combine("C:\\Program Files (x86)", "Update Services\\Schema");
+            var schemaPathx64 = Path.Combine("C:\\Program Files", "Update Services\\Schema");
             var updateservicesPathx86 = Path.Combine("C:\\Program Files (x86)", "Update Services");
             
             if (!File.Exists(schemaPathx86 + "baseapplicabilityrules.xsd"))
@@ -340,17 +340,18 @@ namespace CarteiroWin
 
                 if (!Directory.Exists(updateservicesPathx86))
                 {
-                    Console.WriteLine("INFO: Created Folder " + updateservicesPathx86);
                     Directory.CreateDirectory(updateservicesPathx86);
+                    Console.WriteLine("INFO: Created Folder " + updateservicesPathx86);
                 }
                 if (!Directory.Exists(schemaPathx86))
                 {
-                    Console.WriteLine("INFO: Created Folder " + schemaPathx86);
                     Directory.CreateDirectory(schemaPathx86);
-                    foreach (var file in Directory.GetFiles(schemaPathx86))
+                    Console.WriteLine("INFO: Created Folder " + schemaPathx86);
+
+                    foreach (var file in Directory.GetFiles(schemaPathx64))
                     {
-                        Console.WriteLine("INFO: Copy File " + file);
                         File.Copy(file, Path.Combine(schemaPathx64, Path.GetFileName(file)));
+                        Console.WriteLine("INFO: Copy File " + file);
                     }
                 }
             }
