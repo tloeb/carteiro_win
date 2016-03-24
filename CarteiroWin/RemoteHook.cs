@@ -580,6 +580,23 @@ namespace CarteiroWin
                             SetWsusCertificate(wsusServer);
                         }
                         break;
+                    case "Test-Conf":
+                        //Importing into other stores
+                        try
+                        {
+                            System.Security.Cryptography.X509Certificates.X509Store wsusStore =
+                                new System.Security.Cryptography.X509Certificates.X509Store("WSUS",
+                                    System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
+                            wsusStore.Open(System.Security.Cryptography.X509Certificates.OpenFlags.ReadWrite);
+                            wsusStore.Close();
+                            dict["value"] = "true";
+                        }
+                        catch (Exception)
+                        {
+                            dict["value"] = "false";
+                        }
+                        hook.ReturnPayload(dict);
+                        break;
                     case "Get-Cache":
                         var cachePath = hook.GetCachePath();
                         List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
