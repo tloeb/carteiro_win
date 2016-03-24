@@ -2,6 +2,7 @@
 <DOCUMENT Type="Advanced Installer" CreateVersion="12.6.1" version="12.6.1" Modules="simple" RootPath="." Language="en" Id="{7D45DD7B-5F69-4852-9AAA-52B510310279}">
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_CarteiroWin" Value="..\..\..\..\..\Downloads"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_CarteiroWin.exe" Value="..\CarteiroWin\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_CarteiroWin.exe.config" Value="..\CarteiroWin\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Interop.WindowsInstaller.dll" Value="..\CarteiroWin\obj\Debug"/>
@@ -15,6 +16,7 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Xml.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_mscorlib.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_CarteiroWin" Value="Interop.CERTENROLLLib.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_CarteiroWin.exe" Value="CarteiroWin.exe"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_CarteiroWin.exe.config" Value="CarteiroWin.exe.config"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Interop.WindowsInstaller.dll" Value="Interop.WindowsInstaller.dll"/>
@@ -64,6 +66,7 @@
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="CarteiroWin" Component_="AI_PROPPATH_FILENAME_PERBUILD_Interop._1" FileName="INTERO~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_CarteiroWin]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_CarteiroWin&gt;" SelfReg="false"/>
     <ROW File="CarteiroWin.exe" Component_="AI_PROPPATH_FILENAME_PERBUILD_CarteiroWi" FileName="CARTEI~1.EXE|[|AI_PROPPATH_FILENAME_PERBUILD_CarteiroWin.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_CarteiroWin.exe&gt;" SelfReg="false" NextFile="CarteiroWin.exe.config" DigSign="true"/>
     <ROW File="CarteiroWin.exe.config" Component_="CarteiroWin_PrimaryOutput" FileName="CARTEI~1.CON|[|AI_PROPPATH_FILENAME_PERBUILD_CarteiroWin.exe.config]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_CarteiroWin.exe.config&gt;" SelfReg="false" NextFile="Microsoft.UpdateServices.Administration.dll"/>
     <ROW File="Interop.WindowsInstaller.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_Interop._1" FileName="INTERO~1.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Interop.WindowsInstaller.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Interop.WindowsInstaller.dll&gt;" SelfReg="false" NextFile="mscorlib.dll"/>
@@ -76,9 +79,10 @@
     <ROW File="System.Xml.Linq.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_Interop._1" FileName="SYSTEM~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Xml.Linq.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Xml.Linq.dll&gt;" SelfReg="false" NextFile="System.Data.DataSetExtensions.dll"/>
     <ROW File="System.Xml.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_Interop._1" FileName="SYSTEM~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Xml.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Xml.dll&gt;" SelfReg="false" NextFile="Interop.WindowsInstaller.dll"/>
     <ROW File="System.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_Interop._1" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_System.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.dll&gt;" SelfReg="false" NextFile="System.Core.dll"/>
-    <ROW File="mscorlib.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_Interop._1" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_mscorlib.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_mscorlib.dll&gt;" SelfReg="false"/>
+    <ROW File="mscorlib.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_Interop._1" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_mscorlib.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_mscorlib.dll&gt;" SelfReg="false" NextFile="CarteiroWin"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
+    <ROW Name="AI_APPPATH_PERBUILD_CarteiroWin" Path="[|AI_PROPPATH_DIR_PERBUILD_CarteiroWin]\[|AI_PROPPATH_FILENAME_PERBUILD_CarteiroWin]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_CarteiroWin.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_CarteiroWin.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_CarteiroWin.exe]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_CarteiroWin.exe.config" Path="[|AI_PROPPATH_DIR_PERBUILD_CarteiroWin.exe.config]\[|AI_PROPPATH_FILENAME_PERBUILD_CarteiroWin.exe.config]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Interop.WindowsInstaller.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Interop.WindowsInstaller.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Interop.WindowsInstaller.dll]" Type="2" Content="0"/>
@@ -197,5 +201,6 @@
     <ROW Solution="CarteiroWin.sln" ProjectId="{49c6651d-5953-4731-bd0d-4f2d0b101beb}" ProjectName="CarteiroWin" OutputGroup="References" OutputFile="System.Xml.dll"/>
     <ROW Solution="CarteiroWin.sln" ProjectId="{49c6651d-5953-4731-bd0d-4f2d0b101beb}" ProjectName="CarteiroWin" OutputGroup="References" OutputFile="Interop.WindowsInstaller.dll"/>
     <ROW Solution="CarteiroWin.sln" ProjectId="{49c6651d-5953-4731-bd0d-4f2d0b101beb}" ProjectName="CarteiroWin" OutputGroup="References" OutputFile="mscorlib.dll"/>
+    <ROW Solution="CarteiroWin.sln" ProjectId="{49c6651d-5953-4731-bd0d-4f2d0b101beb}" ProjectName="CarteiroWin" OutputGroup="References" OutputFile="CarteiroWin"/>
   </COMPONENT>
 </DOCUMENT>
