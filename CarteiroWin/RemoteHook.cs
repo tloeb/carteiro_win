@@ -571,6 +571,7 @@ namespace CarteiroWin
                             var pass = args[2];
                             SetWsusCertificate(path, pass, wsusServer);
                             dict["value"] = "true";
+                            hook.ReturnPayload(dict);
                         }
                         catch (IndexOutOfRangeException)
                         {
