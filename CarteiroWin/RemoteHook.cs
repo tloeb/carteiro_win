@@ -584,12 +584,17 @@ namespace CarteiroWin
                         //Importing into other stores
                         try
                         {
-                            System.Security.Cryptography.X509Certificates.X509Store wsusStore =
-                                new System.Security.Cryptography.X509Certificates.X509Store("WSUS",
-                                    System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
-                            wsusStore.Open(System.Security.Cryptography.X509Certificates.OpenFlags.ReadWrite);
-                            wsusStore.Close();
-                            dict["value"] = "true";
+                            X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
+                            store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+                            X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
+                            X509Certificate2Collection fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
+                            Console.WriteLine("Number of certificates: {0}{1}", fcollection.Count, Environment.NewLine);
+
+                            foreach (X509Certificate2 x509 in fcollection)
+                            {
+                                if (x509.GetNameInfo(X509NameType.DnsName, true) == "Carteiro")
+                                    dict["value"] = "true";
+                            }
                         }
                         catch (Exception)
                         {
