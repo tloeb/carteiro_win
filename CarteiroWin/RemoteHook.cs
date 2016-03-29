@@ -326,7 +326,7 @@ namespace CarteiroWin
         }
         private IUpdate ImportPackage(IUpdateServer wsus, string packagepath, string title, string desc, string vendor)
         {
-            //Be sure that the baseapplicabilityrules.xsd exists
+            //Be sure that the baseapplicabilityrules.xsd exists 
             var schemaPathx86 = Path.Combine("C:\\Program Files (x86)", "Update Services\\Schema");
             var schemaPathx64 = Path.Combine("C:\\Program Files", "Update Services\\Schema");
             var updateservicesPathx86 = Path.Combine("C:\\Program Files (x86)", "Update Services");
@@ -368,6 +368,12 @@ namespace CarteiroWin
 
             string sdpFilePath = Environment.GetEnvironmentVariable("TEMP") + "\\" + sdp.Title + sdp.PackageId.ToString() + ".txt";
 
+            //Superseed Update if there is one existing
+            var searchString = title.Split(' ')[0];
+            foreach (IUpdate update in wsus.SearchUpdates(searchString))
+            {
+                sdp.SupersededPackages.Add(update.Id.UpdateId);
+            }
             sdp.Save(sdpFilePath);
             IPublisher publisher = wsus.GetPublisher(sdpFilePath);
             FileInfo dir = new FileInfo(packagepath);
