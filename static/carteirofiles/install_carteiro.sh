@@ -52,3 +52,8 @@ echo "******** Inserting Firewall Rule *********"
 echo
 # Firewall Settings for Apache Web
 sudo iptables -I INPUT 1 -p tcp --dport 80 -j ACCEPT
+echo "******** Create Log File *****************"
+echo
+sudo mkdir /var/log/carteiro
+sudo touch /var/log/carteiro/carteiro.log
+sudo chown -R www-data:www-data /var/log/carteiro/
