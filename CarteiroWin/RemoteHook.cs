@@ -800,21 +800,21 @@ namespace CarteiroWin
 
                     default:
                         Console.Error.WriteLine("ERROR: invalid operation");
-                        Console.WriteLine("CarteiroWin Commands:\n");
-                        Console.WriteLine("CarteiroWin Set-DNSName <Name>  --- Sets a new Registry Entry for the connection to local WSUS");
-                        Console.WriteLine("CarteiroWin Get-DNSName --- Get connectionstring for local WSUS");
-                        Console.WriteLine("CarteiroWin Test-SSL --- Test if ssl connection is possible");
-                        Console.WriteLine("CarteiroWin Set-Cert [Path] [Password] --- Import or generate certificate into WSUS Settings");
-                        Console.WriteLine("CarteiroWin Test-Conf --- Test Certificate Configuration");
-                        Console.WriteLine("CarteiroWin Get-Cache --- Returns the current Download Cache");
-                        Console.WriteLine("CarteiroWin Get-Package <Path> <Name> --- Imports local Path or URL to the CarteiroWin Cache");
-                        Console.WriteLine("CarteiroWin Import-Package <Filename> --- Imports File from CarteiroWin Cache into WSUS");
-                        Console.WriteLine("CarteiroWin Get-Updates --- Returns Local Published Updates from Carteiro Win");
-                        Console.WriteLine("CarteiroWin Delete-Update <update_id> --- Deletes the given Update");
-                        Console.WriteLine("CarteiroWin Approve-Update <update_id> <'Install'|'Uninstall'|'NotApproved'> <targetgroup_id --- Approves the Update with the given Rule for the given WSUS group");
-                        Console.WriteLine("CarteiroWin Get-Groups --- Returns all WSUS TargetGroups");
-                        Console.WriteLine("CarteiroWin Get-Group <id> --- Returns the members of the given Group Id");
-                        Console.WriteLine("CarteiroWin Get-Client-Status <id> --- Returns WSUS Report for a Client");
+                        Console.WriteLine("\nCarteiroWin Commands:\n");
+                        Console.WriteLine("CarteiroWin Set-DNSName <Name>  \t\t\t --- Sets a new Registry Entry for the connection to local WSUS\n");
+                        Console.WriteLine("CarteiroWin Get-DNSName \t\t\t --- Get connectionstring for local WSUS\n");
+                        Console.WriteLine("CarteiroWin Test-SSL \t\t\t --- Test if ssl connection is possible\n");
+                        Console.WriteLine("CarteiroWin Set-Cert [Path] [Password] \t\t\t --- Import or generate certificate into WSUS Settings\n");
+                        Console.WriteLine("CarteiroWin Test-Conf \t\t\t --- Test Certificate Configuration\n");
+                        Console.WriteLine("CarteiroWin Get-Cache \t\t\t --- Returns the current Download Cache");
+                        Console.WriteLine("CarteiroWin Get-Package <Path> <Name> \t\t\t --- Imports local Path or URL to the CarteiroWin Cache\n");
+                        Console.WriteLine("CarteiroWin Import-Package <Filename> \t\t\t --- Imports File from CarteiroWin Cache into WSUS\n");
+                        Console.WriteLine("CarteiroWin Get-Updates \t\t\t --- Returns Local Published Updates from Carteiro Win\n");
+                        Console.WriteLine("CarteiroWin Delete-Update <update_id> \t\t\t --- Deletes the given Update\n");
+                        Console.WriteLine("CarteiroWin Approve-Update <update_id> <'Install'|'Uninstall'|'NotApproved'> <targetgroup_id \t\t\t --- Approves the Update with the given Rule for the given WSUS group\n");
+                        Console.WriteLine("CarteiroWin Get-Groups \t\t\t --- Returns all WSUS TargetGroups\n");
+                        Console.WriteLine("CarteiroWin Get-Group <id> \t\t\t --- Returns the members of the given Group Id\n");
+                        Console.WriteLine("CarteiroWin Get-Client-Status <id> \t\t\t --- Returns WSUS Report for a Client\n");
                         break;
                 }
             //hook.ReturnPayload(dict);
