@@ -369,11 +369,11 @@ namespace CarteiroWin
             string sdpFilePath = Environment.GetEnvironmentVariable("TEMP") + "\\" + sdp.Title + sdp.PackageId.ToString() + ".txt";
 
             //Superseed Update if there is one existing
-            var searchString = title.Split(' ')[0];
-            foreach (IUpdate update in wsus.SearchUpdates(searchString))
-            {
-                sdp.SupersededPackages.Add(update.Id.UpdateId);
-            }
+            //var searchString = title.Split(' ')[0];
+            //foreach (IUpdate update in wsus.SearchUpdates(searchString))
+            //{
+            //    sdp.SupersededPackages.Add(update.Id.UpdateId);
+            //}
             sdp.Save(sdpFilePath);
             IPublisher publisher = wsus.GetPublisher(sdpFilePath);
             FileInfo dir = new FileInfo(packagepath);
