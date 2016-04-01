@@ -23,45 +23,36 @@ Vagrant.configure(2) do |config|
     # specify to use winrm rather than ssh
     wsus.vm.communicator = "winrm"
     # forward RDP port
-    # use "host: 3377" if you are running locally, 
+    # use "host: 5001" if you are running locally, 
     # since 3389 will be already taken by your RDP listener.
     wsus.vm.network :forwarded_port, guest: 3389, host: 5001
   end
 
-  #Server Client
-  config.vm.define "winserver-client" do |wsus|
-    wsus.vm.box = "kensykora/windows_2012_r2_standard"
-    wsus.vm.hostname = 'testserver'
-    wsus.vm.network "private_network", ip: "192.168.0.30"
-    wsus.vm.provision "shell" do |prov|
-      prov.path = "static/winfiles/Install-WSUSClient.ps1"
-    end
-    # specify to use winrm rather than ssh
-    wsus.vm.communicator = "winrm"
-    # forward RDP port
-    # use "host: 3377" if you are running locally, 
-    # since 3389 will be already taken by your RDP listener.
-    wsus.vm.network :forwarded_port, guest: 3389, host: 5010
-  end
-
-  #Munki
-  config.vm.define "munki" do |munki|
-    munki.vm.box = "AndrewDryga/vagrant-box-osx"
-    munki.vm.hostname = 'munki'
-    munki.vm.network "private_network", ip: "192.168.0.3"
-  end
-
   #Windows Client
-  #Password = Passw0rd!
   config.vm.define "win-client" do |winc|
     winc.vm.box = "senglin/win-7-enterprise"
     winc.vm.hostname = "winClient"
     winc.vm.network "private_network", ip: "192.168.0.20"
+    #winc.vm.provision "shell" do |prov|
+    #  prov.path = "static/winfiles/Install-WSUSClient.ps1"
+    #end
     # specify to use winrm rather than ssh
     winc.vm.communicator = "winrm"
     # forward RDP port
-    # use "host: 3377" if you are running locally, 
+    # use "host: 5002" if you are running locally, 
     # since 3389 will be already taken by your RDP listener.
     winc.vm.network :forwarded_port, guest: 3389, host: 5002
+  end
+
+  #Munki Server
+  config.vm.define "munki" do |munki|
+    munki.vm.box = "AndrewDryga/vagrant-box-osx"
+    munki.vm.hostname = "munki"
+    munki.vm.network "private_network", ip: "192.168.0.3"
+    munki.vm.network :forwarded_port, guest: 5900, host:5900
+    munki.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+      v.cpus = 4
+    end
   end
 end
