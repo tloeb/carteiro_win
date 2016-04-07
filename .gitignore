@@ -1,0 +1,3 @@
+#Ignore Cache Folder
+CarteiroWinInstall/CarteiroWinInstall-cache/*
+CarteiroWin/obj/Debug/*
